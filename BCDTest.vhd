@@ -47,8 +47,8 @@ begin
 	end process;
 	--
 	CntValBcd <= ToBcd(CntVal_D, 8);
-	CurSeg    <= ExtractSlice(CntValBcd, 4, conv_integer(ClkCnt_D(17 downto 15)));
+	CurSeg    <= ExtractSlice(CntValBcd, 4, conv_integer(ClkCnt_D(15 downto 13)));
 	--
 	Segments  <= BcdArray(conv_integer(CurSeg));
-	Display   <= not SHL(xt0(Displays-1) & '1', ClkCnt_D(17 downto 15));
+	Display   <= not SHL(xt0(Displays-1) & '1', ClkCnt_D(15 downto 13));
 end architecture rtl;
